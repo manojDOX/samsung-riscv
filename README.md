@@ -4,7 +4,8 @@ The RISC-V Talent Development Program, powered by Samsung Semiconductor India Re
 
 ##  Basic Details
 
-**Name:** Manoj B 
+**Name:** Manoj B
+<br>
 **College:** Atria Institutions of Technology  
 **Email ID:** manoj2882003@gmail.com  
 **GitHub Profile:** [manojDOX](https://github.com/manojDOX?tab=repositories)  
