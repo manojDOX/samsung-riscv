@@ -18,6 +18,7 @@ The RISC-V Talent Development Program, powered by Samsung Semiconductor India Re
 <br>
 
 **1. Install Ubuntu 20.04 LTS on Oracle Virtual Machine Box**
+> Setting up a virtual environment with Ubuntu 20.04 LTS to ensure a consistent development environment for all tasks. This includes configuring settings for optimal performance and usability.
 
 ![Ubuntu and VMBox Installation](https://github.com/manojDOX/samsung-riscv/blob/main/Task%201/virtual_machine.png)
 
@@ -35,6 +36,9 @@ The RISC-V Talent Development Program, powered by Samsung Semiconductor India Re
 **4. generating RISC-V based O1 and Ofast**
 
 ### seen instruction reduction from O1 to Ofast
+> Observing Optimization Levels: The optimization levels O1 and Ofast were applied to the compiled C code. Results revealed a significant reduction in the number of assembly instructions when moving from O1 to Ofast, showcasing the efficiency of RISC-V's optimization pipeline.
+
+
 
 ![RISC-V based result](https://github.com/manojDOX/samsung-riscv/blob/main/Task%201/RISC-V_Lab.png)
 
