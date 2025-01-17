@@ -76,3 +76,83 @@ The RISC-V Talent Development Program, powered by Samsung Semiconductor India Re
 - Spike simulation confirmed correct program execution and output validation
 
 </details>
+
+
+----------------------------------------------------------------------------------------------------------------
+
+
+<details>
+<summary><b>Task 3:</b> Analysis of RISC-V Instruction Types and Assembly Code Documentation</summary>
+<br>
+
+**1. Understanding RISC-V Instruction Formats**
+> A comprehensive study of the six basic RISC-V instruction formats: R-type, I-type, S-type, B-type, U-type, and J-type instructions.
+
+**2. Instruction Type Analysis**
+
+### I-Type Instructions (Immediate)
+```assembly
+addi    sp,sp,-16        # Stack pointer adjustment
+ld      ra,8(sp)         # Load return address
+li      a1,30            # Load immediate value
+```
+> Used for immediate arithmetic operations and loads. Format: `opcode rd, rs1, immediate`
+
+### R-Type Instructions (Register)
+```assembly
+add     rd, rs1, rs2     # Register-to-register arithmetic
+sub     rd, rs1, rs2     # Register subtraction
+```
+> Used for register-to-register operations. Format: `opcode rd, rs1, rs2`
+
+### S-Type Instructions (Store)
+```assembly
+sd      ra,8(sp)         # Store doubleword
+```
+> Used for store operations. Format: `opcode rs2, offset(rs1)`
+
+### U-Type Instructions (Upper Immediate)
+```assembly
+lui     a0,0x21         # Load upper immediate
+```
+> Used for setting upper bits of a register. Format: `opcode rd, immediate`
+
+### J-Type Instructions (Jump)
+```assembly
+jal     ra,104dc        # Jump and link
+```
+> Used for jumps and function calls. Format: `opcode rd, offset`
+
+**3. Instruction Encoding Pattern**
+```
+R-type: |funct7|rs2|rs1|funct3|rd|opcode|
+I-type: |immediate[11:0]|rs1|funct3|rd|opcode|
+S-type: |imm[11:5]|rs2|rs1|funct3|imm[4:0]|opcode|
+B-type: |imm[12]|imm[10:5]|rs2|rs1|funct3|imm[4:1]|imm[11]|opcode|
+U-type: |immediate[31:12]|rd|opcode|
+J-type: |imm[20]|imm[10:1]|imm[11]|imm[19:12]|rd|opcode|
+```
+
+**4. Key Observations:**
+- All instructions maintain a fixed 32-bit width
+- Common patterns in instruction encoding enhance decode efficiency
+- Immediate fields are arranged to simplify sign-extension
+- Register specifiers are consistently positioned where possible
+- Function calls and returns follow a standard pattern using `jal` and `ret`
+
+**5. Common Function Patterns**
+```assembly
+# Function Prologue
+addi    sp,sp,-16        # Allocate stack frame
+sd      ra,8(sp)         # Save return address
+
+# Function Epilogue
+ld      ra,8(sp)         # Restore return address
+addi    sp,sp,16         # Deallocate stack frame
+ret                      # Return from function
+```
+
+</details>
+
+----------------------------------------------------------------------------------------------------------------
+
